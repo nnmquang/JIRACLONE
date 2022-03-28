@@ -3,11 +3,21 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+//setup redux
+import store from './redux/reducers/configStore'
+import { Provider } from 'react-redux'
+//Thư viên css của antd
+import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
+import { BrowserRouter, Router } from 'react-router-dom';
+import {history} from './util/libs/history'
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Router history={history}>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
+  </Provider>
+  </Router>
+  ,
   document.getElementById('root')
 );
 

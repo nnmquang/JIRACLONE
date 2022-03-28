@@ -1,0 +1,39 @@
+import React from "react";
+import { Route } from "react-router-dom";
+import ContentMain from "../../components/Cyberbugs/Main/ContentMain";
+import HeaderMain from "../../components/Cyberbugs/Main/HeaderMain";
+import InfoMain from "../../components/Cyberbugs/Main/InfoMain";
+import MenuCyberbugs from "../../components/Cyberbugs/MenuCyberbugs";
+import ModalCyberBugs from "../../components/Cyberbugs/ModalCyberBugs/ModalCyberBugs";
+import SidebarCyberbugs from "../../components/Cyberbugs/SidebarCyberbugs";
+import Header from "../../components/Home/Header/Header";
+import '../../index.css'
+
+
+
+
+
+export const CyberbugsTemplate = (props) => {
+
+    const { Component, ...restParam } = props
+
+    return <Route path={restParam.path} render={(propsRoute) => {
+        return <>
+            <div className="jira">
+            <SidebarCyberbugs/>
+            <MenuCyberbugs/>
+            <Component {...propsRoute}/>
+                {/* {/* {/* Main Board * /} * /} */}
+                {/* <div className="main">
+                    <HeaderMain/>
+                    <h3>Cyber Board</h3>
+                    <InfoMain/>
+                    <ContentMain/>
+                </div> */}
+                <ModalCyberBugs/>
+
+
+            </div>
+        </>
+    }} />
+}
